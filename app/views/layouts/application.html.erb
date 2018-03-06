@@ -11,19 +11,23 @@
 
   </head>
 
-  <body class="w3-container">
+  <body class="">
 
-    <div class="fixed w3-bar bg-white-90 space-mono bb bw1 shadow-4 b--black mb2 pv2">
-      <a href="/" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red"><%= image_tag 'store.svg', alt: 'Home', height: '28', width: '28', style: 'display: block; margin-left: auto; margin-right: auto; margin-bottom: none; margin-top: none' %></a>
-      <a href="/static_pages/home" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Home</a>
-      <a href="/" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Shop</a>
-      <a href="/static_pages/help" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Help</a>
-      <a href="/static_pages/about" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">About</a>
-      <li href="#" class="w3-bar-item w3-black w3-text-white montserrat b">TEMPORARY NAV SEPARATOR</li>
-      <a href="/products" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Manage Products</a>
-    </div>
+    <nav class="space-mono bg-white-90 fixed dt w-100 border-box mt3 pv3 ph5-ns shadow-4">
+      <!--Left Nav Section (25%)-->
+      <!--Need to fix padding and display-->
+      <a href="/" class="dtc v-mid w-25 tr space-mono ttu tracked f6 f5-ns"><%= image_tag 'store.svg', alt: 'Home', height: '28', width: '28', style: 'display: block; margin-left: auto; margin-right: auto; margin-bottom: none; margin-top: none' %></a>
+      <a href="/products" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Manage Store</a>
+      <!--Right Nav Section (75%)-->
+      <div class="dtc v-mid w-75 tr space-mono ttu tracked f6 f5-ns">
+        <a href="/" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Store</a>
+        <a href="/static_pages/about" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">About</a>
+        <a href="/static_pages/help" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Help</a>
+        <a href="/static_pages/home" class="w3-bar-item w3-button w3-hover-white w3-hover-text-red">Home</a>
+      </div>
+    </nav>
 
-   <div class="w3-container mt5">
+   <div class="w3-container">
     <%= yield %>
    </div>    
 

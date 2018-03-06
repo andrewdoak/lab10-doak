@@ -5,7 +5,7 @@
 <table class="w3-table w3-bordered w3-responsive">
 <thead>
   <tr>
-    <th><h3 class="montserrat b red lh-title">Product Details</h3></th>
+    <th><h1 class="montserrat b red lh-title">Product Details</h1></th>
     <th></th>
   </tr>
 </thead>
@@ -35,24 +35,24 @@
   <%= image_tag(@product.image_url) %>    
 </td>
 </tr>
-
-<td>
-  <strong class="montserrat red">Price:</strong>
-</td>
-<td>
-  <p class="space-mono red f6 lh-copy"><%= number_to_currency(@product.price) %></p>    
-</td>
-</tr>
-
-
-<tr>
-<td>
-<%= link_to 'Edit', edit_product_path(@product) ,class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
-</td>
-<td>
-  <%= link_to 'Back', products_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<main class="mt6">
+  <td>
+    <strong class="montserrat red">Price:</strong>
+  </td>
+  <td>
+    <p class="space-mono red f6 lh-copy"><%= number_to_currency(@product.price) %></p>    
+  </td>
+  </tr>
+  
+  
+  <tr>
+  <td>
+  <%= link_to 'Edit', edit_product_path(@product) ,class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
+  </td> |
+  <td>
+    <%= link_to 'Back', products_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+</main>

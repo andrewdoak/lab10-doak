@@ -1,0 +1,40 @@
+<main class="mt6">
+
+  <div class="w3-panel">
+  
+  <table class="w3-table w3-bordered w3-responsive">
+  <thead>
+    <tr>
+      <th><h1 class="montserrat b red lh-title">Cart</h1></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <p class="montserrat b red lh-title"><% @cart.line_items.each do |item| %></p> 
+    <tr>
+     <td>
+       <p class="montserrat b red lh-title"><%= item.product.title %></p>
+       </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="eb-garamond f5 lh-title"><%= number_to_currency(item.product.price) %></p>
+      </td>
+    </tr>
+    <% end %>
+    
+    <tr>
+
+    </tr>
+  <td>
+  <%= link_to 'Edit', edit_cart_path(@cart) , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
+  </td>
+  <td>
+    <%= link_to 'Back', carts_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+</main>

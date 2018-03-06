@@ -1,28 +1,30 @@
-<h1 class="montserrat b red">Store</h1>
-<p class="space-mono f5 red">Find me in app/views/store/index.html.erb</p>
-
-<table class="w3-table w3-bordered w3-responsive">
-  <thead class="montserrat b w3-centered red">
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody class="">
-    <% @products.each do |product| %>
+<main class="mt6">
+  <h1 class="montserrat b red">Store</h1>
+  <p class="space-mono f5 red">Find me in app/views/store/index.html.erb</p>
+  
+  <table class="w3-table w3-bordered w3-responsive">
+    <thead class="montserrat b w3-centered red">
       <tr>
-        <td class=""><h6 class="montserrat b lh-title red"><%= product.title %></h6></td>
-        <td width="50%"><p class="eb-garamond f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></p></td>
-        <td><%= image_tag(product.image_url) %></td>
-        <td class="">
-          <p class="space-mono tracked red f5 lh-copy"><%= number_to_currency(product.price) %></p>
-          <hr />
-          <%= link_to 'Add to Cart', product , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Price</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody class="">
+      <% @products.each do |product| %>
+        <tr>
+          <td class=""><h6 class="montserrat b lh-title red"><%= product.title %></h6></td>
+          <td width="50%"><p class="eb-garamond f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></p></td>
+          <td><%= image_tag(product.image_url) %></td>
+          <td class="">
+            <p class="space-mono tracked red f5 lh-copy"><%= number_to_currency(product.price) %></p>
+            <hr />
+            <%= button_to 'Add to Cart', line_items_path(product_id: product), class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
 

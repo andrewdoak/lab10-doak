@@ -1,0 +1,43 @@
+<main class="mt6">
+<p id="notice" class="w3-panel"><%= notice %></p>
+
+<div class="w3-panel">
+
+<table class="w3-table w3-bordered w3-responsive">
+<thead>
+  <tr>
+    <th><h1 class="montserrat b red lh-title">line_item</h1></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+
+<td>
+  <strong class="montserrat b red lh-title">Product:</strong>
+</td>
+<td>
+  <%= @line_item.product %>
+</td>
+</tr>
+
+<td>
+  <strong class="montserrat b red lh-title">Cart:</strong>
+</td>
+<td>
+  <%= @line_item.cart %>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<%= link_to 'Edit', edit_line_item_path(@line_item) , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
+</td>
+<td>
+  <%= link_to 'Back', line_items_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
