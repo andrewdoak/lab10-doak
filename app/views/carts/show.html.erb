@@ -10,31 +10,32 @@
     </tr>
   </thead>
   <tbody>
-    
-    <p class="montserrat b red lh-title"><% @cart.line_items.each do |item| %></p> 
+  
+<% @cart.line_items.each do |item| %>  
+<tr>
+  <td><span class="montserrat b lh-title"><%= item.quantity %> &times; <%= item.product.title %></span></td>
+  <td><span class="eb-garamond lh-title f5"><%= number_to_currency(item.total_price) %></span></td>
+</tr>
+<% end %>
     <tr>
-     <td>
-       <p class="montserrat b red lh-title"><%= item.product.title %></p>
-       </td>
+    <td><span class="eb-garamond red lh-title f5">Total Order Value </span></td>
+    <td><span class="eb-garamond red lh-title f5"><%= number_to_currency(@cart.total_price) %></span></td>
     </tr>
-    <tr>
-      <td>
-        <p class="eb-garamond f5 lh-title"><%= number_to_currency(item.product.price) %></p>
-      </td>
-    </tr>
-    <% end %>
-    
-    <tr>
 
-    </tr>
-  <td>
-  <%= link_to 'Edit', edit_cart_path(@cart) , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
-  </td>
-  <td>
-    <%= link_to 'Back', carts_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
-  </td>
-  </tr>
-  </tbody>
+<tr>
+<td>
+<%= link_to 'Edit', edit_cart_path(@cart) ,class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
+</td>
+<td>
+<%= link_to 'Back', carts_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+</td>
+</tr>
+</tbody>
+</table>
   </table>
+    <div class="ph2">  
+      <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+      <%= link_to 'Keep Shopping', store_index_url , class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+    </div>
   </div>
 </main>

@@ -29,15 +29,17 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
-  def create
-  # use the current selected product_id to find product data for the line items
-    product = Product.find(params[:product_id])
-		@line_item = @cart.line_items.build(product: product)
-   # @line_item = LineItem.new(line_item_params)
 
-    respond_to do |format|
+  # use the current selected product_id to find product data for the line items
+   def create
+     product = Product.find(params[:product_id])
+     @line_item = @cart.add_product(product)
+ 
+     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        #Don't need the notice when adding to cart
+        #format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -45,6 +47,7 @@ class LineItemsController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
@@ -79,6 +82,7 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id)
+    #  params.require(:line_item).permit(:product_id, :cart_id)
+    params.require(:line_item).permit(:product_id)
     end
 end
