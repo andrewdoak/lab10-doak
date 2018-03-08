@@ -34,6 +34,7 @@
 </table>
   </table>
     <div class="ph2">  
+      <%= button_to "Checkout", new_order_path, method: :get, class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large"  %>
       <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
       <%= link_to 'Keep Shopping', store_index_url , class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
     </div>
