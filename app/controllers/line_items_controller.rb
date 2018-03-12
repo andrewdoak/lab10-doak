@@ -1,10 +1,10 @@
 class LineItemsController < ApplicationController
-  
+  #Do not require login to view line items.
+  skip_before_action :authorize, only: [:index, :show, :new, :create]
   # Use the CurrentCart concern and determine when it is used.
   #Located in .../app/controllers/concerns/current_cart.rb.
   include CurrentCart
 	before_action :set_cart, only: [:create]
-	
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items

@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  #Require login to manage products
+  before_action :authorize
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Textbook Store</title>
+    <title>Andrew's Dev Bookshop</title>
     
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"   
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="   crossorigin="anonymous">">
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
-  <body class="">
+  <body class="debug">
 
-    <nav class="dt space-mono bg-white-90 fixed dt w-100 border-box mt3 pv3 ph5-ns shadow-4">
-      <!--Left Nav Section (25%)-->
-      <a href="/" class="dtc v-mid w3-hover-none link dim w-25 tr space-mono ttu tracked f6 f5-ns"><%= image_tag 'store.svg', alt: 'Home', 
+    <nav class="dn-s-m z-5 dt fixed space-mono bg-white-50 bg-blur-5 dt w-100 border-box mt3 pv3 ph4-ns bt bw2 b--red shadow-4">
+      <!--Left Nav Section (20%)-->
+      <a href="/" class="dtc v-mid w3-hover-none link dim w-10 tr space-mono ttu tracked f6 f5-ns"><%= image_tag 'store.svg', alt: 'Home', 
       height: '28', width: '28', style: 'display: block; margin-bottom: none; margin-top: none' %></a>
       
-      <!--Right Nav Section (75%)-->
-      <div class="dtc v-mid w-75 tr space-mono ttu tracked f6 f5-ns">
-        <a href="/" aria-label="Store Home" class="dtc tc w3-bar-item w3-button w3-hover-white w3-hover-text-red">Store</a>
-        <a href="/static_pages/about" aria-label="About" class="dtc tc w3-bar-item w3-button w3-hover-white w3-hover-text-red">About</a>
-        <a href="/static_pages/help" aria-label="Help" class="dtc tc w3-bar-item w3-button w3-hover-white w3-hover-text-red">Help</a>
-        <a href="/static_pages/home" aria-label="Home" class="dtc tc w3-bar-item w3-button w3-hover-white w3-hover-text-red">Home</a>
-        <!--Manage Store Section-->
-        <a href="/products" aria-label="Manage Products" class="w3-hover-none link dim tr space-mono ttu tracked f6 f5-ns">
-        <%= image_tag 'store-admin-black.svg', alt: 'Manage Store', height: '28', width: '28' %></a>
+      <!--Right Nav Section (80%)-->
+      <div class="dtc v-mid w-90 tr space-mono ttu tracked f6 f5-ns">
+        <a href="/static_pages/home" aria-label="Home" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">Home</a>
+        <a href="/static_pages/about" aria-label="About" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">About</a>
+        <a href="/static_pages/help" aria-label="Help" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">Help</a>
+        <a href="/" aria-label="Store Home" class="f7 dtc tc w3-bar-item w3-button w3-hover-none w3-hover-text-red">Shop</a>
+        <%= link_to 'Login', login_path, method: :post, class:"f7 dtc tc w3-button w3-hover-none w3-hover-text-red" %>
+        <!--Admin Section-->
+        <% if session[:user_id] %>
+        <%= link_to 'Orders', orders_path, class:"f7 dtc tc w3-bar-item w3-button w3-hover-none w3-hover-text-red" %>
+        <%= link_to 'Products', products_path, class:"f7 dtc tc w3-bar-item w3-button w3-hover-none w3-hover-text-red" %>
+        <%= link_to 'Users', users_path, class:"f7 dtc tc w3-bar-item w3-button w3-hover-none w3-hover-text-red" %>
+        <%= link_to 'Logout', logout_path, method: :delete, class:"f7 dtc tc w3-bar-item w3-button w3-hover-none w3-hover-text-red" %>
+        <% end %>
       </div>
     </nav>
+    
+<!--Mobile Menu MDL-->
+    <!--Top Menu-->
+    <nav class="dn-l z-5 dt fixed space-mono bg-red-90 bg-blur-5 dt w-100 border-box mt0 pv3 bb bw2 b--red shadow-4">
+      <a href="/" 
+        class="dtc v-mid w3-hover-none link dim w-50 tr f6 f5-ns pl4">
+        <%= image_tag 'store-logotype-white.svg', alt: 'Home', height: '28', style: 'display: block; margin-bottom: none; margin-top: none' %>
+      </a>
+    </nav>
+    
+    <div class="dn-l demo-layout-transparent mdl-layout mdl-js-layout">
+      <div class="mdl-layout__drawer bg-blur-5 bg-white-90">
+        <nav class="mdl-navigation bg-blur-5">
+          <a href="/static_pages/home" aria-label="Home" 
+            class="space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red">Home</a>
+          <a href="/static_pages/about" aria-label="About" 
+            class="space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red">About</a>
+          <a href="/static_pages/help" aria-label="Help" 
+            class="space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red">Help</a>
+          <a href="/" aria-label="Store Home" 
+          class="space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red">Shop</a>
+          <%= link_to 'Login', login_path, method: :post, class:"space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red" %>
+          
+          <!--Admin Section-->
+          <% if session[:user_id] %>
+          <%= link_to 'Orders', orders_path, class:"space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red" %>
+          <%= link_to 'Products', products_path, class:"space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red" %>
+          <%= link_to 'Users', users_path, class:"space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red" %>
+          <%= link_to 'Logout', logout_path, method: :delete, class:"space-mono f6 ttu dtc tc link tracked w3-button w3-hover-none w3-hover-text-red" %>
+        <% end %>
+        </nav>
+        <script>
+          setInterval("upgradeMDL();", 100);
+          function upgradeMDL() {
+            componentHandler.upgradeDom();
+            //componentHandler.upgradeDom();
+            //componentHandler.upgradeAllRegistered();
+          }
+        </script>
+      </div>
+    </div>
 
-   <div class="w3-container">
-    <%= yield %>
+<!--MDL Fix for dynamic sites.-->
+   <main class="mdl-layout__content">
+      <div class="page-content">
+        <%= yield %>
+      </div>
    </div>    
 
   </body>
 </html>
+
