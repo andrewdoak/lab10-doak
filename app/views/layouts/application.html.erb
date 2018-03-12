@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Andrew's Dev Bookshop</title>
+    <title>The Ruby Bookshop</title>
     
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,13 +17,14 @@
 
   <body class="">
 
-    <nav class="dn-s-m z-5 dt fixed space-mono bg-white-50 bg-blur-5 dt w-100 border-box mt3 pv3 ph4-ns bt bw2 b--red shadow-4">
+    <nav class="dn-s-m z-5 dt fixed space-mono bg-white-30 bg-blur-5 dt w-100 border-box mt3 pv3 ph4-ns bt bw2 b--red shadow-4">
       <!--Left Nav Section (20%)-->
-      <a href="/" class="dtc v-mid w3-hover-none link dim w-10 tr space-mono ttu tracked f6 f5-ns"><%= image_tag 'store.svg', alt: 'Home', 
-      height: '28', width: '28', style: 'display: block; margin-bottom: none; margin-top: none' %></a>
+      <a href="/" class="dtc v-mid w3-hover-none link dim w-20 tr f6"><%= image_tag 'store-logotype-red.svg', 
+      alt: 'Home', height: '32', style: 'display: block; margin-bottom: none; margin-top: none' %></a>
+      
       
       <!--Right Nav Section (80%)-->
-      <div class="dtc v-mid w-90 tr space-mono ttu tracked f6 f5-ns">
+      <div class="dtc v-mid w-80 tr space-mono ttu tracked f6 f5-ns">
         <a href="/static_pages/home" aria-label="Home" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">Home</a>
         <a href="/static_pages/about" aria-label="About" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">About</a>
         <a href="/static_pages/help" aria-label="Help" class="f7 dtc tc w3-button w3-hover-none w3-hover-text-red">Help</a>
