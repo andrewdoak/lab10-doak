@@ -1,9 +1,13 @@
-<p id="notice" class="w3-panel"><%= notice %></p>
+<div class="bg-photoshop vh-100 w-100 pt6">
+  
+<p id="notice" class="w3-panel montserrat ttu red"><%= notice %></p>
 
-<h1>Orders</h1>
-
-<table class="w3-table-all">
-  <thead>
+<div class="flex justify-center pt6">
+  
+  <div class="w-80-ns">
+    <h1 class="playfair-display f-subheadline lh-solid red w3-animate-top">Orders</h1>
+    <table class=" w3-animate-bottom w3-table w3-bordered w3-responsive pt3">
+      <thead class="montserrat b ttu tracked lh-copy red w3-centered">
     <tr>
       <th>Name</th>
       <th>Address</th>
@@ -16,13 +20,13 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.name %></td>
-        <td><%= order.address %></td>
-        <td><%= order.email %></td>
-        <td><%= order.pay_type %></td>
-        <td><%= link_to 'Show', order , class:"w3-button w3-light-gray" %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) , class:"w3-button w3-light-gray" %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } , class:"w3-button w3-light-gray" %></td>
+        <td class="playfair-display f4 red"><%= order.name %></td>
+        <td class="space-mono f5 red"><%= order.address %></td>
+        <td class="space-mono f5 red"><%= order.email %></td>
+        <td class="space-mono f5 red"><%= order.pay_type %></td>
+        <td><%= link_to 'Show', order , class:"space-mono w3-mobile w3-button br-pill grow w3-white w3-border w3-border-red w3-hover-red" %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) , class:"space-mono w3-mobile w3-button br-pill grow w3-white w3-border w3-border-red w3-hover-red" %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } , class:"space-mono w3-mobile w3-button br-pill grow w3-white w3-border w3-border-red w3-hover-red" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path , class:"w3-button w3-light-gray" %>
+<%= link_to 'New Order', new_order_path , class:"w3-animate-bottom space-mono w3-mobile w3-button br-pill grow w3-white w3-border w3-border-red w3-hover-red" %>
