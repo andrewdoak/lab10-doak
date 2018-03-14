@@ -4,8 +4,8 @@
 
 <div class="flex justify-center pt6">
   
-  <div class="w-80-ns">
-    <h1 class="playfair-display f-subheadline lh-solid red w3-animate-top">Orders</h1>
+  <div class="w-60-ns">
+    <h1 class="playfair-display f-subheadline lh-solid red w3-animate-top pb3 bb bw2 b--red">Orders</h1>
     <table class=" w3-animate-bottom w3-table w3-bordered w3-responsive pt3">
       <thead class="montserrat b ttu tracked lh-copy red w3-centered">
     <tr>
@@ -20,7 +20,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td class="playfair-display f4 red"><%= order.name %></td>
+        <td class="space-mono f5 red"><%= order.name %></td>
         <td class="space-mono f5 red"><%= order.address %></td>
         <td class="space-mono f5 red"><%= order.email %></td>
         <td class="space-mono f5 red"><%= order.pay_type %></td>
