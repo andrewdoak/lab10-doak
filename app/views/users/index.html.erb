@@ -1,28 +1,35 @@
-<div class="mt6">
-<p id="notice" class="w3-panel"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table class="w3-table-all">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user , class:"w3-button w3-light-gray" %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) , class:"w3-button w3-light-gray" %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } , class:"w3-button w3-light-gray" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="bg-photoshop vh-100 w-100 pt6">
+  <div class="flex justify-center">
+  <p id="notice" class="w3-panel"><%= notice %></p>
+  
+  <main class="mt6">
+    <h1 class="montserrat b red w3-animate-bottom-slow">Users</h1>
+    
+    <table class="w3-table w3-bordered w3-responsive">
+      <thead class="montserrat b w3-centered red">
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+  
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><span class="playfair-display"><%= user.name %></span></td>
+          <td><%= link_to 'Show', user , class:"pb2 space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) , class:"space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } , class:"space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New User', new_user_path , class:"space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %>
+  </div>
 </div>
 <br>
 
-<%= link_to 'New User', new_user_path , class:"w3-button w3-light-gray" %>
+

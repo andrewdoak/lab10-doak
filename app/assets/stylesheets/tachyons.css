@@ -2,7 +2,7 @@
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i|Didact+Gothic|Space+Mono:400,400i');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,800|Playfair+Display:700|Raleway:400,900|Space+Mono:400,400i,700,700i');
 
 html {
     line-height: 1.15;
@@ -1588,8 +1588,25 @@ code {
     font-family: Consolas, monaco, monospace
 }
 
-/*My Extra Fonts*/
+/*Type improvements*/
+.nokern {
+  font-kerning: none;
+}
 
+.kern {
+  font-kerning: normal;
+  text-rendering:optimizeLegibility;
+}
+
+.ligatures {
+    font-feature-settings: liga, dlig;
+    -webkit-font-feature-settings: liga, dlig;
+    -moz-font-feature-settings: liga, dlig;
+    font-variant-ligatures: discretionary-ligatures, common-ligatures;
+    text-rendering:optimizeLegibility;
+}
+
+/*My Extra Fonts*/
 .didact-gothic {
     font-family: 'Didact Gothic', sans-serif
 }
@@ -1598,8 +1615,17 @@ code {
     font-family: 'Montserrat', sans-serif
 }
 
+
+.raleway {
+    font-family: 'Raleway', sans-serif
+}
+
 .eb-garamond {
     font-family: 'EB Garamond', serif
+}
+
+.playfair-display {
+    font-family: 'Playfair Display', serif;
 }
 
 .space-mono {
@@ -4172,7 +4198,7 @@ code {
     }
 }
 /*@media screen and (min-width: 30em) and (max-width: 60em) {*/
-@media screen and (min-width: 640px) and (max-width: 1024px) {
+@media screen and (min-width: 640px) and (max-width: 1062px) {
     .man1-m {
         margin: -.25rem;
     }
@@ -4574,6 +4600,10 @@ code {
     text-transform: none
 }
 
+.sm-cap {
+    font-variant-caps: all-small-caps;
+}
+
 .f-6,
 .f-headline {
     font-size: 6rem
@@ -4954,16 +4984,24 @@ code {
 }
 
 /*Hide when not on Mobile*/
-@media screen and (max-width:30em) {
+@media screen and (max-width:500px) {
     .dn-s {
         display: none;
+    }
+    
+    .bw0-s {
+        border-width: 0
     }
 }
 
 /*Hide for mobile and tablet*/
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1062px) {
     .dn-s-m {
         display: none;
+    }
+    
+    .bw0-s-m {
+        border-width: 0
     }
 }
 
@@ -6404,7 +6442,7 @@ code {
 }
 
 /*@media screen and (min-width:30em) and (max-width:60em) {*/
-@media screen and (min-width: 640px) and (max-width: 1024px) {
+@media screen and (min-width: 640px) and (max-width: 1062px) {
     .aspect-ratio-m {
         height: 0;
         position: relative
@@ -7842,7 +7880,7 @@ code {
 }
 
 /*@media screen and (min-width:60em) {*/
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1063px) {
     .aspect-ratio-l {
         height: 0;
         position: relative

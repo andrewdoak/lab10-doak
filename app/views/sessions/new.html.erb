@@ -1,28 +1,32 @@
-<div class="mt6">
-    <h1>Sessions#new</h1>
-    <p>Find me in app/views/sessions/new.html.erb</p>
+<div class="bg-photoshop vh-100 w-100 pt6">
+    <!--<h1 class="playfair-display f1 red">Login</h1>
+    <p>Find me in app/views/sessions/new.html.erb</p>-->
         <div class="alert">
             <% if flash[:alert] %>
             <p id="notice"><%= flash[:alert] %></p>
         <% end %>
         </div>
         
-        <%= form_tag do %>
         
-        <fieldset>
-            <legend>Please Log In</legend>
-                <div class="form-group">
-                    <%= label_tag :name, 'Name:' %>
-                    <%= text_field_tag :name, params[:name], class:"form-control" %>
+        
+            <%= form_tag do %>
+                <div class="mw5 pt5 center">
+                <!-- bg-white-90 pa5 bb bw2 b--red mdl-shadow-4dp-->
+                    <!--<legend>Please Log In</legend>-->
+                        <div class="f6 mw9 center space-mono tracked ttu pv4">
+                            <%= label_tag :name, 'Name:', class: "mb2", pattern:'[A-Z,a-z, ]*' %>
+                            <%= text_field_tag :name, params[:name], placeholder:"User", class:"f4 red playfair-display fw9 bg-white-90 bn tc shadow-4 pv2" %>
+                        </div>
+                        <div class="f6 mw9 center space-mono tracked ttu">
+                            <%= label_tag :password, 'Password:' %>
+                            <%= password_field_tag :password, params[:password], placeholder:"Password", class:"f4 red playfair-display fw9 bg-white-90 bn tc shadow-4 pv2" %>
+                        </div>
+                        <div class="f6 mw7 center space-mono tracked ttu red pt3">
+                            <%= submit_tag "Login", class:"space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %>
+                        </div>
                 </div>
-                <div class="form-group">
-                    <%= label_tag :password, 'Password:' %>
-                    <%= password_field_tag :password, params[:password], class:"form-control" %>
-                </div>
-                <div class="actions">
-                    <%= submit_tag "Login", class:"btn btn-default" %>
-                </div>
-        </fieldset>
-</div>
-<% end %>
+            <% end %>
+        </div>
+
+
 

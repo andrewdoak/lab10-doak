@@ -1,7 +1,7 @@
-<div class="mt6">
+<div class="bg-photoshop vh-100 w-100 pt6">
 
     <h1 class="montserrat b red lh-title">Welcome</h1>
-    <p class="eb-garamond f5">It's <%= Time.now.asctime %>
+    <p class="eb-garamond f5">It's <%= Time.zone.now.asctime %>
     We have <span class="red"><%= pluralize(@total_orders, "order") %>.</span>
     </p>
 

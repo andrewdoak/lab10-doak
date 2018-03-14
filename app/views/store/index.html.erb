@@ -1,24 +1,29 @@
-<header class="mt6 montserrat mb4">
-    <div class="mw9 center pa4 pt5-ns ph7-l">
+<header class="pt6 bg-photoshop vh-100 dt w-100">
+    <div class="vh-75 dtc v-btm-ns tl pa4 pb6 ph5-m ph7-l">
       <!--<time class="f6 mb2 dib ttu tracked"><small>27 July, 2015</small></time>-->
-      <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
-        <span class="b bg-red ttu lh-solid white pa1 tracked w3-animate-top">
-          Book.shop
+      <h1 class="playfair-display red fw7 b kern ligatures f-headline-l measure-narrow lh-title pb4">
+        <span class="bg-blur-5 bg-white-70 lh-solid pa1 pb3  bt bw3 b--red w3-animate-top">
+          &nbsp;Bookshop.&nbsp;
         </span>
-      </h3>
-      <!--<h4 class="f3 fw1 w3-animate-top space-mono">Find me in app/views/static_pages/home.html.erb</h4>-->
-      <h5 class="f6 red ttu tracked black-80 w3-animate-top space-mono">Find me in app/views/store/index.html.erb</h5>
+      </h1>
+      
+      <h5 class="mt4 f6 black-80 ttu tracked lh-copy w3-animate-top space-mono">
+        <span class="mt3 pt2 bt bw2 bw0-s b--black-80">
+          I live in app/views/store/index.html.erb
+        </span>
+      </h5>
     </div>
 </header>
+   
   
-<div class="flex justify-center">
+<div class="flex justify-center pt6">
   <div class="w-80-ns">
     <table class=" w3-animate-bottom w3-table w3-bordered w3-responsive pt3">
-      <thead class="montserrat b w3-centered red">
+      <thead class="montserrat b ttu tracked lh-copy red w3-centered">
         <tr>
           <th>Title</th>
           <th>Description</th>
-          <th>Image</th>
+          <th>Cover</th>
           <th>Price</th>
         </tr>
       </thead>
@@ -26,8 +31,8 @@
       <tbody class="">
         <% @products.each do |product| %>
           <tr>
-            <td class=""><h6 class="montserrat b lh-title red"><%= product.title %></h6></td>
-            <td width="50%"><p class="eb-garamond f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></p></td>
+            <td class=""><h6 class="pt4 space-mono ttu lh-copy red"><%= product.title %></h6></td>
+            <td width="50%"><p class="eb-garamond ligatures f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></p></td>
             <td><%= image_tag(product.image_url) %></td>
             <td class="">
               <p class="space-mono tracked red f5 lh-copy"><%= number_to_currency(product.price) %></p>
