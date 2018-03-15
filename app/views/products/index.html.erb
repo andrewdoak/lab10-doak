@@ -1,35 +1,72 @@
-<p id="notice" class="w3-panel"><%= notice %></p>
+<!--MANAGE PRODUCTS Page-->
 
-<main class="mt6">
-  <h1 class="montserrat b red w3-animate-bottom-slow">Products</h1>
+<!--Checkerboard Background Header-->
+<header class="pt6 bg-photoshop vh-80 dt w-100 bb bw2 b--red shadow-4">
   
-  <table class="w3-table w3-bordered w3-responsive">
-    <thead class="montserrat b w3-centered red">
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <p id="notice" class="w3-animate-opacity f3 w3-text-red mx-multiply playfair-display"><%= notice %></p>
   
-    <tbody class="">
-      <% @products.each do |product| %>
-        <tr>
-          <td><h6 class="montserrat b lh-title red"><%= sanitize(product.title) %></h6></td>
-          <td width="50%"><p class="eb-garamond f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></td>
-          <td><%= image_tag(product.image_url) %></p></td>
-          <td><p class="space-mono tracked red f5 lh-copy"><%= number_to_currency(product.price) %></p></td>
-          <td><%= link_to 'Show', product , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure? Really, really sure?' } , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="vh-75 dtc v-btm-ns tl pa4 pb6 ph5-m ph7-l">
+      <!--<time class="f6 mb2 dib ttu tracked"><small>27 July, 2015</small></time>-->
+      <h1 class="playfair-display black-70 fw7 b kern ligatures f-headline-l measure-narrow lh-title pb4">
+        <span class="bg-blur-5 bg-white-70 lh-solid ph4 pb3 bt bw3 b--red shadow-4 w3-animate-top">
+          &nbsp;Manage Products.&nbsp;
+        </span>
+      </h1>
+      
+      <h5 class="space-mono ttu mt4 f6 black-80 tracked lh-copy w3-animate-top">
+        <span class="mt3 pa2 bg-blur-5 bg-white-70 ba bw1 b--red shadow-4">
+          Authorized personnel only!
+        </span>
+      </h5>
+      <br>
+        <i class="red w3-animate-opacity fl w30 pa1 material-icons">arrow_downward</i>
+    </div>
+    
+    <!--Fixed button with tooltip-->
+    <div id="tt-new-product" class="pos-fi-br mx-multiply">
+      <div class="mdl-tooltip space-mono ttu" for="tt-new-product">
+        Add a Product
+      </div>
+      <%= link_to ' ', new_product_path , 
+      class:"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab w3-animate-opacity 
+      w3-hover-black w3-red grow w3-hover-text-black no-underline w3-text-red playfair-display" %>
+</header>
 
-  <br>
+<!--Table of Products-->
 
-  <%= link_to 'New Product', new_product_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
-</main>
+<!--Center table-->
+<div class="flex justify-center pt5">
+  <!--Table width-->
+  <div class="w-80-ns w-90">
+    <table class=" w3-animate-bottom pt3 w3-responsive  pb6">
+        <!--<thead class="montserrat b ttu tracked lh-copy red w3-centered bb bw1 b--red">-->
+        <!--  <tr>-->
+        <!--    <th>Title</th>-->
+        <!--    <th>Description</th>-->
+        <!--    <th>Cover</th>-->
+        <!--    <th>Price</th>-->
+        <!--  </tr>-->
+        <!--</thead>-->
+      <tbody class="">
+        <% @products.each do |product| %>
+          <tr>
+            <td><h6 class="pt4 space-mono ttu lh-copy red"><%= product.title %></h6></td>
+            <td width="50%"><p class="eb-garamond f4 lh-copy"><%= sanitize(strip_tags(product.description)) %></td>
+            <td class="bwneg"><%= image_tag(product.image_url) %></p></td>
+            <td class="pl2">
+              <p class="space-mono tracked red f5 lh-copy"><%= number_to_currency(product.price) %></p>
+                <hr />
+              <%= link_to 'Show', product , 
+                class:"ttu tracked db w3-text-red grow w3-hover-none w3-hover-text-black ma1 f6 space-mono no-underline" %>
+              <%= link_to 'Edit', edit_product_path(product) , 
+                class:"ttu tracked db w3-text-red grow w3-hover-none w3-hover-text-black ma1 f6 space-mono no-underline" %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure you want to kill me, Dave?' } , 
+                class:"ttu tracked db w3-text-red grow w3-hover-none w3-hover-text-black ma1 f6 space-mono no-underline" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>

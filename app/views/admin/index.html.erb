@@ -1,8 +1,38 @@
-<div class="bg-photoshop vh-100 w-100 pt6">
+<!--ADMIN Welcome Page-->
+<header class="pt6 bg-photoshop vh-80 dt w-100 bb bw2 b--red shadow-4">
+    <div class="vh-75 dtc v-btm-ns v-mid tl pa4 pb6 pl-m ph7-l">
+      <!--<time class="f6 mb2 dib ttu tracked"><small>27 July, 2015</small></time>-->
+      <h1 class="playfair-display black-70 b kern ligatures f-headline-l measure-narrow lh-title pb4">
+        <span class="bg-blur-5 bg-white-70 lh-solid ph4 pb3 bt bw3 b--red shadow-4 w3-animate-top">
+          &nbsp;Welcome!&nbsp;
+        </span>
+      </h1>
+      
+      <h5 class="space-mono mt4 f6 black-80 tracked lh-copy w3-animate-top">
+        <!--Large Breakpoints-->
+        <span class="dn-s-m ttu mt3 pa2 bg-blur-5 bg-white-70 ba bw1 b--red shadow-4">
+          It's <%= Time.zone.now.asctime %>.
+            You have 
+            <br class="dn-ns">
+            <span class="red"><%= pluralize(@total_orders, "order") %> </span>awaiting!
+        </span>
+        
+        <!--Medium & Small Breakpoints-->
+        <span class="space-mono dn-l mv2 pv2 lh-title">
+          It's <%= Time.zone.now.asctime %>.<br class="dn-l">
+          You have <span class="red ttu"><%= pluralize(@total_orders, "order") %></span> awaiting!
+        
+      </h5>
+        
+      <!--Manage Orders-->
+      <!--Fixed button with tooltip-->
+      <div id="tt-orders" class="pos-fi-br mx-multiply">
+        <div class="mdl-tooltip space-mono ttu" for="tt-orders">
+          View Orders
+        </div>
+        <%= link_to ' ', orders_path, 
+        class:"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab w3-animate-opacity w3-hover-black w3-red grow w3-hover-text-black no-underline w3-text-red playfair-display" %>
+      </div>
+</header>
 
-    <h1 class="montserrat b red lh-title">Welcome</h1>
-    <p class="eb-garamond f5">It's <%= Time.zone.now.asctime %>
-    We have <span class="red"><%= pluralize(@total_orders, "order") %>.</span>
-    </p>
-
-</div>
+        

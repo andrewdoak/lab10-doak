@@ -4,6 +4,24 @@
 
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,800|Playfair+Display:700|Raleway:400,900|Space+Mono:400,400i,700,700i');
 
+/*My custom Tachyons*/
+
+/*Fixed Bottom Right*/
+.pos-fi-br {
+  position:fixed;
+  bottom: 15%;
+  right: 5%;
+  cursor:pointer;
+}
+
+/*Fixed Bottom Right*/
+.pos-fi-tr {
+  position:fixed;
+  top: 15%;
+  right: 5%;
+  cursor:pointer;
+}
+
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -1595,7 +1613,6 @@ code {
 
 .kern {
   font-kerning: normal;
-  text-rendering:optimizeLegibility;
 }
 
 .ligatures {
@@ -2417,6 +2434,10 @@ code {
 
 .bg-black-05 {
     background-color: rgba(0, 0, 0, .05)
+}
+
+.bg-white-95 {
+    background-color: hsla(0, 0%, 100%, .95)
 }
 
 .bg-white-90 {
@@ -4991,6 +5012,14 @@ code {
     
     .bw0-s {
         border-width: 0
+    }
+    
+    .pl2-s {
+     padding-left: .5rem   
+    }
+    
+    .w-100-s {
+        width: 100%
     }
 }
 

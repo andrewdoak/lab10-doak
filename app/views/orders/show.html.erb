@@ -1,58 +1,100 @@
-<p id="notice" class="w3-panel"><%= notice %></p>
+<!--ORDERS/SHOW Page-->
 
-<div class="w3-panel w3-aqua">
-
-<table class="w3-table-all">
-<thead>
-  <tr>
-    <th><h1>order</h1></th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-
-<td>
-  <strong>Name:</strong>
-</td>
-<td>
-  <%= @order.name %>
-</td>
-</tr>
-
-<td>
-  <strong>Address:</strong>
-</td>
-<td>
-  <%= @order.address %>
-</td>
-</tr>
-
-<td>
-  <strong>Email:</strong>
-</td>
-<td>
-  <%= @order.email %>
-</td>
-</tr>
-
-<td>
-  <strong>Pay type:</strong>
-</td>
-<td>
-  <%= @order.pay_type %>
-</td>
-</tr>
+<!--Header-->
+<header class="pt6 bg-photoshop vh-90 dt w-100 bb bw2 b--red shadow-4">
+    <div class="vh-75 dtc v-btm-ns v-mid tl pa4 pb6 pl6-m ph7-l">
+      
+      <p id="notice" class="w3-animate-opacity f3 w3-text-red mx-multiply playfair-display"><%= notice %></p>
+      
+      <h1 class="playfair-display black-70 fw7 b kern ligatures f-headline-ns f-subheadline-m measure lh-title pb4">
+          <span class="dn-s bg-blur-5 bg-white-70 lh-solid ph4 pb3 bt bw3 b--red shadow-4 w3-animate-top">
+            &nbsp;Order #&nbsp;
+          </span>
+          
+           <span class="dn-ns mx-multiply lh-solid pb3 red w3-animate-top">
+            &nbsp;Order #&nbsp;
+          </span>
+        </h1>
+        
+        <!--Large Breakpoints-->
+        <h5 class="space-mono ttu mt4 f6 black-80 tracked lh-copy w3-animate-top">
+          <span class="dn-s mt3 pa2 bg-blur-5 bg-white-70 ba bw1 b--red shadow-4">
+            Customer and order details below!
+          </span>
+          
+          <!--Medium & Small Breakpoints-->
+          <span class="dn-ns space-mono dn-l mv2 pv2 lh-title">
+            Customer and order <br class="dn-ns">
+            details below!
+          </span>
+        </h5>
+        <br>
+          <i class="red w3-animate-opacity fl w30 pa1 material-icons">arrow_downward</i>
+    </div>
+</header>
 
 
-<tr>
-<td>
-<%= link_to 'Edit', edit_order_path(@order) ,class:"w3-button w3-light-gray" %> 
-</td>
-<td>
-  <%= link_to 'Back', orders_path , class:"w3-button w3-light-gray" %>
-</td>
-</tr>
-</tbody>
-</table>
+<!--Order Details TABLE-->
+<main class="w-100">
+  <div class="flex justify-center">
+    <!--Table width-->
+    <div class="w-60-ns w-90-m w-100">
+      <table class="pt5 pb4 pl2-s flex justify-center w3-animate-opacity">
+        <!--  <thead>-->
+        <!--    <tr>-->
+        <!--      <th><h1 class="playfair-display red lh-title">Cart</h1></th>-->
+        <!--      <th></th>-->
+        <!--    </tr>-->
+        <!--  </thead>-->
+        <!--</thead>-->
+      
+        <tbody class="pa4">
+            <tr class="pa4">
+              <td>
+                <span class="space-mono f5 ttu tracked red">Name:</span>
+              </td>
+              <td class="eb-garamond ligatures f4 lh-copy">
+                <%= @order.name %>
+              </td>
+            </tr>
+            
+            <tr class="pa4">
+              <td>
+               <span class="space-mono ttu tracked red">Address:</span>
+              </td>
+              
+              <td class="eb-garamond ligatures f4 lh-copy">
+                <%= @order.address %>
+              </td>
+            </tr>
+            
+            <tr class="pa4">
+              <td>
+                <span class="space-mono ttu tracked red">email:</span>
+              </td>
+              <td class="eb-garamond ligatures f4 lh-copy">
+                <%= @order.email %>
+              </td>
+            </tr>
+            
+            <tr class="pa4">
+              <td>
+                <span class="space-mono ttu tracked red">Pay type:</strong>
+              </td>
+              <td class="eb-garamond ligatures f4 lh-copy">
+                <%= @order.pay_type %>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!--Edit Order-->
+<div class="flex items-center justify-center pb3 w3-animate-opacity">
+  <%= link_to 'Edit', edit_order_path(@order) ,
+    class:"bt bw1 b--black pt2 ph3 space-mono no-underline w3-text-black w3-hover-none w3-hover-text-red f5-ns f7 ttu" %>
+  <%= link_to 'Back', orders_path ,
+    class:"bt bw1 b--black pt2 ph3 space-mono no-underline w3-text-black w3-hover-none w3-hover-text-red f5-ns f7 ttu" %>
 </div>

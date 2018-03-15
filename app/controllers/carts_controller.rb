@@ -31,7 +31,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to @cart, notice: 'Cart created.' }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to @cart, notice: 'Cart updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to store_index_url,
-        notice: 'Your cart is currently empty' }
+        notice: 'Your cart is empty.' }
       format.json { head :no_content }
     end
   end
@@ -79,7 +79,7 @@ class CartsController < ApplicationController
     
     #Prevents users from seeing what they shouldn't if they do URL Munging
     def invalid_cart
-      logger.error "Attempt to access invalid cart #{params[:id]}"
+      logger.error "Attempted to access an invalid cart #{params[:id]}"
       redirect_to store_index_url, notice: 'Invalid cart'
     end
 end

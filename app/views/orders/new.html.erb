@@ -1,5 +1,10 @@
-<h1>New Order</h1>
-
-<%= render 'form', order: @order %>
-
-<%= link_to 'Back', orders_path , class:"w3-button w3-light-gray" %>
+<!--Checkout Page-->
+<header class="pt6 bg-photoshop vh-80 dt w-100 bb bw2 b--red shadow-4">
+    <div class="vh-75 dtc v-btm-ns v-mid tl pa4 pb6 pl-m ph7-l">
+        <h1 class="mx-multiply f-subheadline playfair-display lh-solid pb3 red w3-animate-top">Checkout</h1>
+        
+        <%= render 'form', order: @order , class: "w3-animate-opacity"%>
+        
+        <%= link_to 'Back', orders_path , class:"space-mono ttu w3-mobile w3-button br-pill mx-multiply grow w3-white w3-hover-red bw1 b--red" %>
+    </div>
+</header>

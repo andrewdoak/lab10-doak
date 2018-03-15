@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         
         #Added these lines Lab 9
-        format.html { redirect_to store_index_url, notice:'Thank you for your order.' }
+        format.html { redirect_to store_index_url, notice:'Thanks for your order!' }
         format.json { render :show, status: :created, location: @order } 
         
         #Changed Lab 9
@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'Order updated!' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Order destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,7 +83,7 @@ class OrdersController < ApplicationController
     #If nothing is in the cart, user is redirected to the storefront.
     def ensure_cart_isnt_empty
     if @cart.line_items.empty?
-    redirect_to store_index_url, notice: 'Your cart is empty'
+    redirect_to store_index_url, notice: 'There is nothing in your cart.'
     end
     end
 

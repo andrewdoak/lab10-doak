@@ -1,16 +1,12 @@
+<!--LOGIN page-->
 <div class="bg-photoshop vh-100 w-100 pt6">
     <!--<h1 class="playfair-display f1 red">Login</h1>
     <p>Find me in app/views/sessions/new.html.erb</p>-->
-        <div class="alert">
-            <% if flash[:alert] %>
-            <p id="notice"><%= flash[:alert] %></p>
-        <% end %>
-        </div>
         
         
         
             <%= form_tag do %>
-                <div class="mw5 pt5 center">
+                <div class="mw5 pt5 center w3-animate-top">
                 <!-- bg-white-90 pa5 bb bw2 b--red mdl-shadow-4dp-->
                     <!--<legend>Please Log In</legend>-->
                         <div class="f6 mw9 center space-mono tracked ttu pv4">
@@ -22,7 +18,12 @@
                             <%= password_field_tag :password, params[:password], placeholder:"Password", class:"f4 red playfair-display fw9 bg-white-90 bn tc shadow-4 pv2" %>
                         </div>
                         <div class="f6 mw7 center space-mono tracked ttu red pt3">
-                            <%= submit_tag "Login", class:"space-mono ttu w3-mobile w3-button br-pill grow w3-text-red w3-border-red w3-hover-red" %>
+                            <%= submit_tag "Login", class:"shadow-4 ttu f6 space-mono w3-mobile w3-button br-pill grow w3-white w3-border w3-border-red w3-hover-red" %>
+                        </div>
+                        <div class="alert">
+                            <% if flash[:alert] %>
+                            <p id="notice" class="w3-animate-opacity f3 w3-text-red mx-multiply playfair-display lh-copy"><%= flash[:alert] %></p>
+                        <% end %>
                         </div>
                 </div>
             <% end %>

@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
       #Had to add _index to make this work
       redirect_to admin_index_url
       else
-      redirect_to login_url, alert: "Invalid user/password combination"
+      redirect_to login_url, alert: "Nope!"
       end
   end
   
   def destroy
     session[:user_id] = nil
-    redirect_to store_index_url, notice: "Logged out"
+    redirect_to store_index_url, notice: "Logout success!"
   end
 end

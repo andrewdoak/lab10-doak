@@ -1,42 +1,84 @@
-<main class="mt6">
+<!--CARTS/SHOW for Shoppers-->
 
-  <div class="w3-panel">
-  
-  <table class="w3-table w3-bordered w3-responsive">
-  <thead>
-    <tr>
-      <th><h1 class="montserrat b red lh-title">Cart</h1></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  
-<% @cart.line_items.each do |item| %>  
-<tr>
-  <td><span class="montserrat b lh-title"><%= item.quantity %> &times; <%= item.product.title %></span></td>
-  <td><span class="eb-garamond lh-title f5"><%= number_to_currency(item.total_price) %></span></td>
-</tr>
-<% end %>
-    <tr>
-    <td><span class="eb-garamond red lh-title f5">Total Order Value </span></td>
-    <td><span class="eb-garamond red lh-title f5"><%= number_to_currency(@cart.total_price) %></span></td>
-    </tr>
-
-<tr>
-<td>
-<%= link_to 'Edit', edit_cart_path(@cart) ,class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> 
-</td>
-<td>
-<%= link_to 'Back', carts_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
-</td>
-</tr>
-</tbody>
-</table>
-  </table>
-    <div class="ph2">  
-      <%= button_to "Checkout", new_order_path, method: :get, class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large"  %>
-      <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
-      <%= link_to 'Keep Shopping', store_index_url , class:"ma2 dib f6 space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>
+<!--Header-->
+<header class="pt6 bg-photoshop vh-90 dt w-100 bb bw2 b--red shadow-4">
+    <div class="vh-75 dtc v-btm-ns v-mid tl pa4 pb6 pl6-m ph7-l">
+      
+      <p id="notice" class="f3 w3-text-red mx-multiply playfair-display" ><%= notice %></p>
+      
+      <h1 class="playfair-display black-70 fw7 b kern ligatures f-headline-ns f-subheadline-m measure lh-title pb4">
+        <span class="dn-s bg-blur-5 bg-white-70 lh-solid ph4 pb3 bt bw3 b--red shadow-4 w3-animate-top">
+          &nbsp;Cart.&nbsp;
+        </span>
+        
+         <span class="dn-ns mx-multiply lh-solid pb3 red w3-animate-top">
+          &nbsp;Cart.&nbsp;
+        </span>
+      </h1>
+      
+      <!--Large Breakpoints-->
+      <h5 class="space-mono ttu mt4 f6 black-80 tracked lh-copy w3-animate-top">
+        <span class="dn-s mt3 pa2 bg-blur-5 bg-white-70 ba bw1 b--red shadow-4">
+          Review your order below!
+        </span>
+        
+        <!--Medium & Small Breakpoints-->
+        <span class="dn-ns space-mono dn-l mv2 pv2 lh-title">
+          Review your order<br class="dn-ns">
+          then check out!
+        </span>
+      </h5>
+      <br>
+        <i class="red w3-animate-opacity fl w30 pa1 material-icons">arrow_downward</i>
     </div>
+</header>
+
+<!--CART Table-->
+<main class="w-100">
+<div class="flex justify-center">
+  <!--Table width-->
+  <div class="w-60-ns w-90-m w-100">
+    <table class="pt5 pb4 pl2-s flex justify-center w3-animate-bottom">
+      <!--  <thead>-->
+      <!--    <tr>-->
+      <!--      <th><h1 class="playfair-display red lh-title">Cart</h1></th>-->
+      <!--      <th></th>-->
+      <!--    </tr>-->
+      <!--  </thead>-->
+      <!--</thead>-->
+    
+      <tbody class="">
+        <% @cart.line_items.each do |item| %>  
+          <tr>
+            <td width="" class=""><h6 class="eb-garamond ligatures f4 lh-copy"><%= item.quantity %> &times; <%= item.product.title %></h6></td>
+            <td width="%"><p class="eb-garamond ligatures f4 lh-copy"><%= number_to_currency(item.total_price) %></p></td>
+          </tr>
+          <% end %>
+          <tr class="">
+            <td width="" class="space-mono pt2 f4 lh-copy ttu red w3-animate-opacity">Your Total </td>
+            <td width="" class=""><p class="pt2 space-mono tracked red f4 lh-copy w3-animate-opacity"><%= number_to_currency(@cart.total_price) %></p></td>
+              <!--<hr />-->
+              <!--<%#<%= button_to 'Add to Cart', line_items_path(product_id: product), class:"space-mono ttu w3-mobile w3-button br-pill b--red grow w3-white w3-hover-red" %></td>-->
+          </tr>
+          <tr>
+            <!--<td>-->
+            <!--  <%#<%= link_to 'Edit', edit_cart_path(@cart) ,class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %> -->
+            <!--</td>-->
+            <!--<td>-->
+            <!--  <%#<%= link_to 'Back', carts_path , class:"space-mono w3-mobile w3-button w3-red w3-border w3-border-red w3-hover-white w3-round-large" %>-->
+            <!--</td>-->
+          </tr>
+      </tbody>
+    </table>
   </div>
+</div>
 </main>
+
+<div class="flex items-center justify-center pb3 w3-animate-opacity">
+  <%= link_to "Checkout", new_order_path, method: :get, 
+    class:"bt bw1 b--black pt2 ph3 space-mono no-underline w3-text-black w3-hover-none w3-hover-text-red f5-ns f7 ttu" %>
+  <%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure you want to empty your cart?' }, 
+    class:"bt bw1 b--black pt2 ph3 space-mono no-underline w3-text-black w3-hover-none w3-hover-text-red f5-ns f7 ttu" %>
+  <%= link_to 'Keep Shopping', store_index_url , 
+    class:"bt bw1 b--black pt2 ph3 space-mono no-underline w3-text-black w3-hover-none w3-hover-text-red f5-ns f7 ttu" %>
+</div>
